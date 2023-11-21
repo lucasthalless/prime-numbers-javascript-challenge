@@ -23,12 +23,27 @@
 
   <form onsubmit="event.preventDefault()">
     <label for="initialNumber">Type the initial number:</label>
-    <input id="initialNumber" placeholder="Initial number..." type="number" min="0" value="1">
+    <input id="initialNumber" placeholder="Initial number..." type="number" min="1" value="1">
     <label for="finalNumber">Type the final number:</label>
-    <input id="finalNumber" placeholder="Final number..." type="number" min="0" value="1000">
+    <input id="finalNumber" placeholder="Final number..." type="number" min="1" value="1000">
     <button onclick="
+      if (this.form.initialNumber.value <= 0 || this.form.finalNumber.value <= 0) {
+        document.getElementById('finalSum').style = 'color: red';
+        document.getElementById('finalSum').innerHTML = 'The numbers need to be greater than 0!'
+        return
+      }
+
+      if (this.form.finalNumber.value < this.form.initialNumber.value) {
+        document.getElementById('finalSum').style = 'color: red';
+        document.getElementById('finalSum').innerHTML = 'The final number need to be greater than the inital number!'
+        return
+      }
+
       let finalSum = main(this.form.initialNumber.value, this.form.finalNumber.value);
+
+      document.getElementById('finalSum').style = 'color: black';
       document.getElementById('finalSum').innerHTML = 'Final sum: ' + finalSum;
+      
     ">
       sum
     </button>
