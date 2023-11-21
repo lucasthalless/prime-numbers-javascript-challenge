@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prime numbers challenge</title>
+</head>
+<body>
+  <div>
+    <h1>Prime numbers challenge.</h1>
+    <li>
+      Goals:
+      <ul>
+        1. Finds all the prime numbers between 1 and 1000.
+      </ul>
+      <ul>
+        2. Sums all the prime numbers that you found between 1 and 1000.
+      </ul>
+      <ul>
+        3. return the sum of all prime numbers.
+      </ul>
+    </li>
+  </div>
+
+  <form onsubmit="event.preventDefault()">
+    <label for="initialNumber">Type the initial number:</label>
+    <input id="initialNumber" placeholder="Initial number..." type="number" min="0" value="1">
+    <label for="finalNumber">Type the final number:</label>
+    <input id="finalNumber" placeholder="Final number..." type="number" min="0" value="1000">
+    <button onclick="
+      let finalSum = main(this.form.initialNumber.value, this.form.finalNumber.value);
+      document.getElementById('finalSum').innerHTML = 'Final sum: ' + finalSum;
+    ">
+      sum
+    </button>
+  </form>
+
+  <div>
+    <p id="finalSum"></p>
+  </div>
+</body>
+<script src="main.js"></script>
+</html>
